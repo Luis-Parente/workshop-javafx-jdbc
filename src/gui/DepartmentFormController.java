@@ -92,7 +92,7 @@ public class DepartmentFormController implements Initializable {
 		department.setId(Utils.tryParseToInt(txtId.getText()));
 
 		if (txtName.getText() == null || txtName.getText().trim().equals(""))
-			exception.addErrors("name", "Fiel can't be empty");
+			exception.addErrors("name", "Field can't be empty");
 
 		department.setName(txtName.getText());
 
