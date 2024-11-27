@@ -63,7 +63,8 @@
                </padding>
             </Label>
             <Label text="Department" GridPane.rowIndex="5" />
-            <Label textFill="#f80f0f" GridPane.columnIndex="2" GridPane.rowIndex="5">
+            <ComboBox fx:id="comboBoxDepartment" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label fx:id="labelErrorDepartment" textFill="#f80f0f" GridPane.columnIndex="2" GridPane.rowIndex="5">
                <padding>
                   <Insets left="5.0" />
                </padding>
@@ -74,7 +75,6 @@
                   <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#onBtCancelAction" text="Cancel" />
                </children>
             </HBox>
-            <ComboBox fx:id="comboBoxDepartment" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
          </children>
       </GridPane>
    </children>

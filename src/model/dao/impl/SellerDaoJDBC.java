@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -33,7 +34,8 @@ public class SellerDaoJDBC implements SellerDao {
 					+ "VALUES (?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
 			st.setString(1, seller.getName());
 			st.setString(2, seller.getEmail());
-			st.setDate(3, new java.sql.Date(seller.getBirthDate().toEpochDay()));
+			st.setDate(3, new java.sql.Date(
+					seller.getBirthDate().atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli()));
 			st.setDouble(4, seller.getBaseSalary());
 			st.setInt(5, seller.getDepartment().getId());
 
@@ -66,7 +68,8 @@ public class SellerDaoJDBC implements SellerDao {
 					+ "SET Name = ?, Email = ?, BirthDate = ?, BaseSalary = ?, DepartmentId = ? " + "WHERE Id = ?");
 			st.setString(1, seller.getName());
 			st.setString(2, seller.getEmail());
-			st.setDate(3, new java.sql.Date(seller.getBirthDate().toEpochDay()));
+			st.setDate(3, new java.sql.Date(
+					seller.getBirthDate().atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli()));
 			st.setDouble(4, seller.getBaseSalary());
 			st.setInt(5, seller.getDepartment().getId());
 			st.setInt(6, seller.getId());
